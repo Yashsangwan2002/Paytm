@@ -7,6 +7,7 @@ const  { authMiddleware } = require("../middleware");
 //signup route
 const zod = require("zod");
 const { User } = require("../db");
+const { Account } = require("../db");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
 
@@ -51,7 +52,7 @@ router.post("/signup",async (req,res)=>{
     })
 
 	/// -----  ------
-    
+
     const token = jwt.sign({
         userId
     }, JWT_SECRET);
